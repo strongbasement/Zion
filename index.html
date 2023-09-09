@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZION</title>
+</head>
+<body>
+    <style>
+        .auto
+        {
+            text-transform:uppercase;
+            color:burlywood
+            
+        }
+        .autos
+        {
+            color:cadetblue
+        }
+        .title{text-align: center;}
+        td{
+            color: violet;
+            font-size: 24px;
+        }
+        select
+        {
+            color: violet;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+        .formf
+        {
+            margin-top: 100px;
+            max-width: 500px;
+            margin:5rem auto;
+        }
+        #but
+        {
+            background-color:rgba(120, 165, 0,0.6);
+            border-radius: 5%;
+            font-size: 24px;
+            color: white;
+            padding: 1rem;
+            width:50%;
+            cursor: pointer;
+            &:hover{
+                color: green;
+            }
+        }
+        #butty
+        {
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+        
+    <h1 class="title"><span class="auto"></span></h1>
+    <h1 ><span class="autos"></span></h1>
+    <form name="submit-to-google-sheet" class="formf">
+       
+        <table cellpadding=10>
+     <tr>
+    <td>Benecia </td>
+    <td><select name="Benecia" id="Benecia"><option>Present</option><option>absent</option></td>
+    </tr>
+    <tr>
+        <td>Brightson</td>
+        <td><select name="Brightson" id="Brightson"><option>Present</option><option>absent</option></td>
+        </tr>
+        
+                <td>Harpic Daniel</td>
+                <td><select name="Harpic_Daniel" id="Harpic_Daniel"><option>Present</option><option>absent</option></td>
+                </tr>
+                <tr>
+                    <td>Lenin</td>
+                    <td><select name="Lenin" id="Lenin"><option>Present</option><option>absent</option></td>
+                    </tr>
+                    <tr>
+                        <td>Mercy Helen</td>
+                        <td><select name="Mercy_Helen" id="Mercy_Helen"><option>Present</option><option>absent</option></td>
+                        </tr>
+                        <tr>
+                            <td>Prabhu Daniel</td>
+                            <td><select name="Prabhu_Daniel" id="Prabhu_Daniel"><option>Present</option><option>absent</option></td>
+                            </tr>   
+                            <tr>
+                                <td>Supriya</td>
+                                <td><select name="Supriya" id="Supriya"><option>Present</option><option>absent</option></td>
+                                </tr>      
+
+    </table>
+    <div id="butty">    <button id="but" onclick="waiter()"  type="" >Mark</button>
+    </div>
+    </form>
+<script>
+    function waiter()
+    {
+        
+        // const but=document.getElementById('but');
+        // but.setAttribute('disabled',true);
+        // but.setAttribute("type","submit");
+        // but.innerHTML="marking the attendance..";
+       
+       
+
+    }
+</script>
+    <script>
+        const but=document.getElementById('but');
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxkpedKK4wM3W40YW2WuSU5B1OLYLfjbJlwrMBw5omIk5pHNUl-0mSxD6IrLf4RBxWbUA/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+            but.setAttribute("disabled",true);
+            but.innerHTML="marking the attendance..";
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {console.log('Success!', response);but.innerHTML="marked successfully"})
+            .catch(error => console.error('Error!', error.message))
+        }).then(but.innerHTML("marked successfully"))
+      </script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    
+<script>
+var date=new Date();
+var day=date.getDate();
+var day1=date.getMonth();
+var day2=date.getFullYear();
+var cd=date.getDay().toString();
+var d=day.toString();
+var a=day.toString();
+var y=day2.toString();
+    var type=new Typed(".auto",{
+        strings:["Praise the lord!","ZION Attendance register"+" "+d+"."+a+"."+y],
+        typeSpeed:150,
+        backSpeed:150,
+
+    })
+   
+   
+    
+   
+</script>
+</body>
+</html>
